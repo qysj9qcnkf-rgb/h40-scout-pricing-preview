@@ -163,10 +163,10 @@
   .plan .pr small{font-family:var(--text);font-weight:500;font-size:14px;color:var(--muted);margin-left:2px}
   .plan .tr{display:block;color:var(--lime);font-size:14px;margin-top:4px}
   .plans-note{margin-top:14px;color:var(--soft);font-size:15px}
-  .trial-how{margin-top:40px}
-  .trial-how h3{font-family:var(--display);font-size:clamp(19px,4.6vw,24px);line-height:1.2}
-  .trial-how .steps{margin-top:22px;gap:26px}
-  .trial-how .steps .n{margin-bottom:10px}
+  .bill-how{margin-top:40px}
+  .bill-how h3{font-family:var(--display);font-size:clamp(19px,4.6vw,24px);line-height:1.2}
+  .bill-how .steps{margin-top:22px;gap:26px}
+  .bill-how .steps .n{margin-bottom:10px}
   .shot{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;font-size:15px;line-height:1.4;min-width:0}
   .ev{display:flex;gap:12px;align-items:center}
   .ev+.ev{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
@@ -490,19 +490,19 @@ if(document.body)bar();else document.addEventListener('DOMContentLoaded',bar);})
 
   <section class="wrap" id="pricing">
     <h2>Pricing</h2>
-    <p class="lede">Three monthly plans, billed by Shopify. 7-day free trial on your first plan, once per store. Uninstall within 7 days and you pay nothing.</p>
+    <p class="lede">Install Scout free. Pick a plan when you want Scout talking to your shoppers. Every plan includes monthly usage, and extra usage is billed by how much Scout uses.</p>
     <div class="plans">
-      <div class="plan"><div><b>Starter</b><span class="tr">7-day free trial</span></div><div class="pr">$49<small>/mo</small></div></div>
-      <div class="plan"><div><b>Growth</b><span class="tr">7-day free trial</span></div><div class="pr">$129<small>/mo</small></div></div>
-      <div class="plan"><div><b>Scale</b><span class="tr">7-day free trial</span></div><div class="pr">$250<small>/mo</small></div></div>
+      <div class="plan"><div><b>Starter</b><span class="tr">Monthly Scout usage included</span></div><div class="pr">$49<small>/mo</small></div></div>
+      <div class="plan"><div><b>Growth</b><span class="tr">3x Starter usage</span></div><div class="pr">$129<small>/mo</small></div></div>
+      <div class="plan"><div><b>Scale</b><span class="tr">9x Starter usage</span></div><div class="pr">$250<small>/mo</small></div></div>
     </div>
-    <p class="plans-note">Every plan includes everything Scout does today. Early access is free until launch on December 15.</p>
-    <div class="trial-how" id="trial">
-      <h3>How your free trial works</h3>
+    <p class="plans-note">Billed by Shopify on your Shopify invoice. Early access is free until launch on December 15.</p>
+    <div class="bill-how" id="billing">
+      <h3>How billing works</h3>
       <ol class="steps">
-        <li><div><span class="n">1</span><h3>Install and pick a plan</h3><p>Add Scout from the Shopify App Store and approve a plan on Shopify's screen.</p></div></li>
-        <li><div><span class="n">2</span><h3>7 days free</h3><p>Switch interviews on and Scout starts talking to your shoppers right away. Nothing is charged during the trial.</p></div></li>
-        <li><div><span class="n">3</span><h3>Keep it or uninstall</h3><p>On day 8 Shopify starts billing your plan. Uninstall before then and you pay nothing.</p></div></li>
+        <li><div><span class="n">1</span><h3>Install free</h3><p>Add Scout from the Shopify App Store. Nothing is charged until you pick a plan.</p></div></li>
+        <li><div><span class="n">2</span><h3>Pick a plan</h3><p>Approve Starter, Growth or Scale on Shopify's screen. Your plan's usage is included every month.</p></div></li>
+        <li><div><span class="n">3</span><h3>Pay for extra only if you use it</h3><p>Go past your plan's usage and the extra is billed by how much Scout uses, never above the monthly cap you approve. Switch plans or uninstall any time.</p></div></li>
       </ol>
     </div>
   </section>
