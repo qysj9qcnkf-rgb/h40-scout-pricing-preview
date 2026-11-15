@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Scout · Early access</title>
+<meta name="description" content="Scout interviews your shoppers for you. Get free early access. We'll set you up. Launching December 15.">
+<link rel="canonical" href="https://scoutyourstore.com/">
+<meta name="theme-color" content="#0B0C0E">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scoutyourstore.com/">
+<meta property="og:title" content="Scout interviews your shoppers for you">
+<meta property="og:description" content="After someone visits or buys on your Shopify store, Scout interviews them by voice and brings you their reasons. Get free early access. Launching December 15.">
+<meta property="og:image" content="https://scoutyourstore.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Scout interviews your shoppers for you.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Scout interviews your shoppers for you">
+<meta name="twitter:description" content="After someone visits or buys on your Shopify store, Scout interviews them by voice and brings you their reasons. Get free early access. Launching December 15.">
+<meta name="twitter:image" content="https://scoutyourstore.com/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0B0C0E;--card:#131518;--line:#2C2F26;--cream:#F3EFE6;--soft:#CFCBC1;--lime:#D1FB18;--muted:#8A887F;--err:#FF8A7A;
+    --gut:20px;--display:Unbounded,Geist,system-ui,sans-serif;--text:Geist,system-ui,sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  html,body{max-width:100%;overflow-x:hidden}
+  body{background:var(--ink);color:var(--cream);font-family:var(--text);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  img,video,svg{display:block;max-width:100%}
+  h1,h2,h3,p,blockquote,li{overflow-wrap:break-word}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--lime);outline-offset:3px;border-radius:6px}
+  .wrap{width:100%;max-width:1180px;margin-inline:auto;padding-inline:var(--gut);min-width:0}
+
+  /* Type */
+  h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-.025em;text-wrap:balance}
+  h1{font-size:clamp(33px,8.7vw,62px);line-height:1.04}
+  h2{font-size:clamp(25px,6.4vw,40px);line-height:1.1}
+  h3{font-size:clamp(18px,4.6vw,21px);line-height:1.2;letter-spacing:-.02em}
+  .lede{font-size:clamp(17px,4.4vw,20px);line-height:1.5;color:var(--soft);max-width:33em}
+  .quiet{color:var(--muted);font-size:15px}
+
+  /* Top */
+  .top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:14px}
+  .mark{width:132px;height:auto;margin-left:-14px;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 16.5%,#000 80.5%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 16.5%,#000 80.5%,transparent 100%)}
+  .top nav{display:flex;align-items:center;gap:16px;font-size:14px;white-space:nowrap}
+  .top nav a{color:var(--cream);font-weight:500;text-decoration:none}
+  .top nav a:hover{color:var(--lime)}
+  .top nav span{color:var(--muted)}
+
+  /* Offer (approved block: same words, same form, same API) */
+  .offer{min-width:0}
+  .offer-h{font-family:var(--text);font-weight:600;font-size:clamp(20px,5.4vw,24px);line-height:1.15;letter-spacing:-.02em}
+  .offer-h .perk{display:block;color:var(--lime);font-size:clamp(32px,9vw,44px);line-height:1.04;letter-spacing:-.03em;margin-top:8px}
+  .offer form{margin-top:22px;display:flex;flex-direction:column;gap:12px;max-width:560px;width:100%;min-width:0}
+  .offer input[type=email]{width:100%;min-width:0;height:58px;border-radius:14px;border:1px solid var(--line);background:var(--card);
+    color:var(--cream);font:500 18px var(--text);padding:0 18px;outline:none}
+  .offer input[type=email]::placeholder{color:#6B6A63}
+  .offer input[type=email]:focus{border-color:var(--lime);box-shadow:0 0 0 3px rgba(209,251,24,.18)}
+  .offer button{height:58px;border:0;border-radius:14px;background:var(--lime);color:var(--ink);font:600 18px var(--text);padding:0 24px;
+    cursor:pointer;transition:transform .12s ease,opacity .12s;white-space:nowrap}
+  .offer button:active{transform:scale(.985)}
+  .offer button[disabled]{opacity:.6;cursor:default}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .err{color:var(--err);font-size:14px}
+  .err:empty{display:none}
+  .date{margin-top:20px;font:500 13px "Geist Mono",ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .date b{color:var(--cream);font-weight:500}
+  .fine{margin-top:8px;font-size:13px;color:var(--muted)}
+  .done{display:none;margin-top:22px}
+  .done .tick{width:56px;height:56px;border-radius:50%;background:var(--lime);display:grid;place-items:center;margin-bottom:16px}
+  .done h3{font-family:var(--text);font-weight:600;font-size:26px;letter-spacing:-.02em}
+  .done p{margin-top:8px;font-size:17px;line-height:1.5;color:var(--soft);max-width:26em}
+  body.ok .offer form,body.ok .offer .fine{display:none}
+  body.ok .offer .done{display:block}
+
+  /* Hero */
+  .hero{padding-top:clamp(28px,6vw,64px);display:grid;gap:44px}
+  .hero .lede{margin-top:18px}
+  .hero .offer{margin-top:clamp(30px,6vw,44px)}
+  .moment{min-width:0}
+  .moment figcaption{margin-top:18px;font-size:17px;line-height:1.45;color:var(--soft);max-width:19em}
+  .moment figcaption b{display:block;font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-.02em;color:var(--cream);margin-bottom:4px}
+
+  /* The Shopify moment: an iPhone lock screen at true proportions (393 x 852 pt screen) */
+  .phone-crop{--w:min(300px,78vw);height:calc(var(--w)*1.34);overflow:hidden;padding:4px 4px 0;margin:-4px -4px 0;
+    -webkit-mask-image:linear-gradient(#000 84%,transparent);mask-image:linear-gradient(#000 84%,transparent)}
+  .phone{width:var(--w);padding:calc(var(--w)*.033);border-radius:calc(var(--w)*.168);background:#060607;
+    box-shadow:0 0 0 1.5px #66676c,0 0 0 3.5px #17181b}
+  .screen{--pt:.25445cqw;container-type:inline-size;position:relative;aspect-ratio:393/852;border-radius:calc(var(--w)*.136);overflow:hidden;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif;color:#fff;
+    background:radial-gradient(120% 55% at 78% 96%,#EC8E60 0%,rgba(236,142,96,0) 62%),radial-gradient(95% 50% at 12% 68%,#A8508A 0%,rgba(168,80,138,0) 66%),linear-gradient(180deg,#272C76 0%,#3D3A8E 24%,#5C387F 56%,#8D4A7C 100%)}
+  .island{position:absolute;top:calc(11*var(--pt));left:50%;width:calc(124*var(--pt));height:calc(36*var(--pt));margin-left:calc(-62*var(--pt));border-radius:99px;background:#000}
+  .status{position:absolute;top:calc(19*var(--pt));right:calc(30*var(--pt));height:calc(13*var(--pt));width:auto}
+  .lock{margin:calc(68*var(--pt)) auto 0;width:calc(15*var(--pt));height:auto}
+  .day{margin-top:calc(8*var(--pt));text-align:center;font-weight:600;font-size:calc(21*var(--pt));letter-spacing:-.01em;line-height:1.2}
+  .time{text-align:center;font-weight:700;font-size:calc(92*var(--pt));line-height:1;letter-spacing:-.035em;font-variant-numeric:tabular-nums}
+  .notes{margin:calc(26*var(--pt)) calc(10*var(--pt)) 0}
+  .note{display:grid;grid-template-rows:1fr}
+  .note>div{min-height:0;overflow:hidden}
+  .note .in{display:flex;gap:calc(11*var(--pt));align-items:center;margin-bottom:calc(8*var(--pt));padding:calc(12*var(--pt)) calc(13*var(--pt));
+    border-radius:calc(23*var(--pt));background:rgba(186,184,202,.66);color:#121214}
+  .note .ico{flex:none;width:calc(38*var(--pt));height:calc(38*var(--pt));border-radius:calc(9*var(--pt));background:#fff;object-fit:cover}
+  .note .tx{min-width:0;flex:1;font-size:calc(14.5*var(--pt));line-height:1.26;letter-spacing:-.01em}
+  .note .hd{display:flex;justify-content:space-between;gap:8px;font-weight:600}
+  .note .hd span{font-weight:400;opacity:.5;font-size:calc(13*var(--pt))}
+  .js .phone-crop:not(.live) .note{grid-template-rows:0fr;opacity:0}
+  .js .phone-crop.live .note{animation:drop .55s cubic-bezier(.2,.8,.2,1) both}
+  .js .phone-crop.live .note:nth-child(3){animation-delay:.25s}
+  .js .phone-crop.live .note:nth-child(2){animation-delay:1s}
+  .js .phone-crop.live .note:nth-child(1){animation-delay:1.75s}
+  @keyframes drop{from{grid-template-rows:0fr;opacity:0;transform:scale(.94)}to{grid-template-rows:1fr;opacity:1;transform:none}}
+
+  /* Sections */
+  section{padding-top:clamp(76px,10vw,124px)}
+  h2+.lede,blockquote+.lede{margin-top:16px}
+
+  /* Videos: poster first, nothing downloads until play */
+  .vid{position:relative;aspect-ratio:9/16;width:100%;max-width:380px;border-radius:24px;overflow:hidden;background:#000;box-shadow:0 0 0 1px var(--line)}
+  .vid video{width:100%;height:100%;object-fit:cover}
+  .vid .play{position:absolute;inset:0;width:100%;border:0;cursor:pointer;color:var(--cream);font:500 15px var(--text);text-align:center;
+    display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:14px;padding:18px 18px 13%;
+    background:linear-gradient(to top,rgba(11,12,14,.9),rgba(11,12,14,.35) 45%,rgba(11,12,14,.15))}
+  .vid .play i{position:relative;flex:none;width:84px;height:84px;border-radius:50%;background:var(--lime);box-shadow:0 10px 40px rgba(209,251,24,.35);display:grid;place-items:center;transition:transform .18s ease}
+  .vid .play i::before,.vid .play i::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--lime);animation:ring 2.2s ease-out infinite}
+  .vid .play i::after{animation-delay:1.1s}
+  @keyframes ring{from{transform:scale(1);opacity:.7}to{transform:scale(1.7);opacity:0}}
+  .vid .play i svg{width:30px;height:33px;margin-left:5px}
+  .vid .play:hover i,.vid .play:focus-visible i{transform:scale(1.08)}
+  .vid .play span{line-height:1.3;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+  .vid .play span b{display:block;font-weight:600;font-size:18px;margin-bottom:6px}
+  .vid .play span em{display:inline-block;font-style:normal;font:600 13px var(--text);letter-spacing:.04em;text-transform:uppercase;color:#0B0C0E;background:var(--lime);border-radius:999px;padding:6px 12px;text-shadow:none}
+  @media (prefers-reduced-motion:reduce){.vid .play i::before,.vid .play i::after{animation:none;opacity:0}}
+  .vid.on .play{display:none}
+  .cap{margin-top:12px;max-width:380px}
+
+  /* The Dip */
+  .dip,.hear,.team{display:grid;gap:26px}
+  .dip>*,.hear>*,.team>*{min-width:0}
+  .dip-story p:first-child{margin-top:0}
+  .dip-story p{margin-top:16px;color:var(--soft);max-width:31em;font-size:18px}
+  .turns{margin-top:26px;max-width:36em;display:grid;gap:16px;padding-left:18px;border-left:2px solid var(--lime)}
+  .turns p{margin:0;color:var(--cream);font-family:var(--display);font-weight:500;font-size:clamp(18px,4.9vw,24px);line-height:1.25;letter-spacing:-.02em;max-width:22em}
+  .turns p.s{color:var(--lime)}
+  .turns small{display:block;font:500 14px var(--text);letter-spacing:0;color:var(--muted);margin-bottom:3px}
+  .dip-story .flip{margin-top:26px;color:var(--cream);font-family:var(--display);font-weight:700;font-size:clamp(20px,5.2vw,26px);line-height:1.2;letter-spacing:-.02em}
+
+  /* How it works */
+  .steps{list-style:none;margin-top:34px;display:grid;gap:44px}
+  .steps li{display:grid;gap:18px;min-width:0;align-content:start}
+  .steps .n{font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);background:var(--lime);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;margin-bottom:14px}
+  .steps p{margin-top:10px;color:var(--soft);max-width:26em}
+  .plans{margin-top:30px;display:grid;gap:12px}
+  .plan{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 22px;display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+  .plan b{font-family:var(--display);font-weight:700;font-size:17px}
+  .plan .pr{font-family:var(--display);font-weight:700;font-size:28px;letter-spacing:-.02em;white-space:nowrap}
+  .plan .pr small{font-family:var(--text);font-weight:500;font-size:14px;color:var(--muted);margin-left:2px}
+  .plan .tr{display:block;color:var(--lime);font-size:14px;margin-top:4px}
+  .plans-note{margin-top:14px;color:var(--soft);font-size:15px}
+  .trial-how{margin-top:40px}
+  .trial-how h3{font-family:var(--display);font-size:clamp(19px,4.6vw,24px);line-height:1.2}
+  .trial-how .steps{margin-top:22px;gap:26px}
+  .trial-how .steps .n{margin-bottom:10px}
+  .shot{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;font-size:15px;line-height:1.4;min-width:0}
+  .ev{display:flex;gap:12px;align-items:center}
+  .ev+.ev{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+  .ev .ic{flex:none;width:36px;height:36px;border-radius:9px;background:#fff;display:grid;place-items:center;object-fit:cover}
+  .ev .ic.o{background:var(--lime);border-radius:50%}
+  .ev .ic svg{width:58%;height:58%}
+  .ev b{display:block;font-weight:600}
+  .ev span{color:var(--muted)}
+  .call-h{display:flex;justify-content:space-between;gap:10px;color:var(--muted)}
+  .call-h b{color:var(--cream);font-weight:600}
+  .call-h .rec{color:var(--cream);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .call-h .rec::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#FF5A4D;margin-right:6px;vertical-align:1px}
+  .who{display:flex;gap:10px;align-items:center;margin-top:14px}
+  .who i{flex:none;width:36px;height:36px;border-radius:50%;background:#D98A66;color:#fff;font:600 13px var(--text);display:grid;place-items:center}
+  .who b{display:block;font-weight:600}
+  .who span{color:var(--muted);font-size:14px}
+  .wave{width:100%;height:auto;margin-top:14px;fill:var(--lime)}
+  .shot .said{margin-top:12px;color:var(--lime);font-weight:500;font-size:16px;max-width:none}
+  .theme-h b{display:block;font-weight:600;font-size:16px}
+  .theme-h span{color:var(--muted);font-size:14px}
+  .bar{height:5px;border-radius:9px;background:#24261F;margin-top:10px;overflow:hidden}
+  .bar i{display:block;height:100%;width:62%;background:var(--lime);border-radius:9px}
+  .shot blockquote{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+  .shot blockquote footer{color:var(--muted);font-size:14px;margin-top:2px}
+
+  /* What you do with it */
+  .uses{list-style:none;margin-top:26px}
+  .uses li{display:grid;gap:14px;padding:26px 0;border-top:1px solid var(--line)}
+  .uses li:last-child{border-bottom:1px solid var(--line)}
+  .uses li>*{min-width:0}
+  .uses blockquote{font-family:var(--display);font-weight:500;font-size:clamp(17px,4.5vw,20px);line-height:1.3;letter-spacing:-.02em;color:var(--cream)}
+  .uses blockquote footer{font:400 14px var(--text);letter-spacing:0;color:var(--muted);margin-top:6px}
+  .uses h3{font-family:var(--text);font-weight:600;font-size:20px;letter-spacing:-.015em;color:var(--lime)}
+  .uses .act p{color:var(--soft);margin-top:4px;max-width:27em}
+  /* One small built screen per use. Light, like the store admin and Scout's own pages. */
+  .pic{background:#F6F5F1;color:#1B1B1F;border-radius:14px;padding:14px;font-size:13px;line-height:1.35;margin-top:6px;max-width:400px}
+  .pic b{font-weight:600}
+  .pp{display:flex;gap:14px;align-items:flex-start}
+  .pp-img,.ad-img{flex:none;width:38%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:9px;background:#E9E6DE}
+  .adm-r img{flex:none;width:34px;height:34px;border-radius:7px;object-fit:cover;background:#E9E6DE}
+  .adm-r img.lav{filter:hue-rotate(215deg) saturate(.55) brightness(1.05)}   /* same jar, lavender wax */
+  .adm-r img.sm{width:24px;height:24px;margin:0 5px}
+  .pp-tx{min-width:0;flex:1;display:flex;flex-direction:column;gap:3px;align-items:flex-start}
+  .pp-tx b{font-size:15px}
+  .pp-tx .added{margin:5px 0 7px;padding:6px 8px 7px;border-radius:7px;background:#E8F7A8;box-shadow:inset 3px 0 0 #1B1B1F;color:#1B1B1F;font-weight:500;max-width:none}
+  .pp-tx .added em{display:block;font-style:normal;font-size:11px;font-weight:600;color:#55610B}
+  .pp-tx .cart{background:#1B1B1F;color:#fff;border-radius:7px;padding:5px 12px;font-weight:600;font-size:12px}
+  .adm-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+  .adm-h b{font-size:15px}
+  .adm-h span{background:#1B1B1F;color:#fff;border-radius:7px;padding:4px 10px;font-weight:600;font-size:12px}
+  .adm-r{display:flex;gap:10px;align-items:center;padding:7px 8px;border-top:1px solid #E3E0D8}
+  .adm-r span{flex:1;min-width:0;font-weight:500}
+  .adm-r em{font-style:normal;font-size:12px;font-weight:500;border-radius:99px;padding:2px 9px;background:#CDF2DC;color:#0C5132}
+  .adm-r em.draft{background:#D5E6FB;color:#0B3B74}
+  .adm-r.new{border-radius:9px;border-top-color:transparent;background:#E8F7A8;box-shadow:inset 3px 0 0 #1B1B1F}
+  .ad{display:flex;gap:14px;align-items:flex-start}
+  .ad-tx{min-width:0;flex:1;display:flex;flex-direction:column;gap:6px;align-self:stretch}
+  .ad-tx small{font-size:11px;font-weight:600;color:#6B6A63}
+  .ad-tx b{font-size:16px;line-height:1.25;letter-spacing:-.01em}
+  .ad-tx span{margin-top:auto;color:#6B6A63}
+  .app-tabs{display:flex;gap:14px;border-bottom:1px solid #DAD7CE;font-size:12px;color:#6B6A63;white-space:nowrap;overflow:hidden}
+  .app-tabs span{padding-bottom:8px}
+  .app-tabs .on{color:#1B1B1F;font-weight:600;box-shadow:inset 0 -2px 0 #1B1B1F}
+  .app-r{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;padding:12px;border-radius:10px;background:#fff;border:1px solid #E3E0D8}
+  .app-r b{font-size:16px}
+  .app-r em{font-style:normal;font-weight:500;color:#0C5132;display:flex;align-items:center;gap:6px}
+  .app-r em i{width:8px;height:8px;border-radius:50%;background:#1F9D55}
+  .owner{margin-top:22px;color:var(--cream);font-weight:500;font-size:18px}
+
+  /* Hear one */
+  .script{display:grid;gap:14px;max-width:32em}
+  .script p{font-size:18px;line-height:1.4}
+  .script small{display:block;font-size:14px;color:var(--muted)}
+  .script .s{color:var(--lime)}
+  .script .told{margin-top:8px;padding:16px 18px;border:1px solid var(--lime);border-radius:16px;font-weight:500}
+  .script .told small{color:var(--lime)}
+
+  /* Founder ad */
+  .team blockquote.head{font-family:var(--display);font-weight:700;font-size:clamp(23px,6vw,36px);line-height:1.12;letter-spacing:-.025em;text-wrap:balance}
+
+
+  /* Guides for Shopify owners */
+  .glist{list-style:none;margin-top:26px;display:grid}
+  .glist li{border-top:1px solid var(--line);min-width:0}
+  .glist li:last-child{border-bottom:1px solid var(--line)}
+  .glist a{display:flex;gap:16px;align-items:center;padding:16px 0;text-decoration:none}
+  .glist img{flex:none;width:112px;height:auto;aspect-ratio:8/5;border-radius:10px;box-shadow:0 0 0 1px var(--line)}
+  .glist a>span{min-width:0;display:grid;gap:4px}
+  .glist b{font-weight:600;font-size:17px;line-height:1.3;color:var(--cream)}
+  .glist a:hover b{color:var(--lime)}
+  .glist span span{font-size:14.5px;line-height:1.45;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .glist .all a{font-weight:600;color:var(--lime);padding:20px 0}
+
+  /* Footer (the same on the guide pages) */
+  .foot{border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+  .foot .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between;padding-top:24px;padding-bottom:calc(28px + env(safe-area-inset-bottom))}
+  .foot nav{display:flex;flex-wrap:wrap;gap:8px 20px}
+  .foot a{color:var(--soft);text-decoration:none}
+  .foot a:hover{color:var(--lime)}
+
+  /* Close: the approved sign-up page, as it was */
+  .close{position:relative;margin-top:clamp(76px,10vw,124px);padding:clamp(64px,10vw,110px) 0 clamp(96px,12vw,130px);text-align:center;border-top:1px solid var(--line)}
+  .close::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(60% 46% at 50% 26%,rgba(209,251,24,.10),transparent 70%)}
+  .close .wrap{position:relative;max-width:560px}
+  .close .mark{width:min(300px,80%);margin:0 auto 4px}
+  .close .what{font-size:16px;line-height:1.45;color:var(--muted);margin:0 auto 28px}
+  .close .offer-h{font-size:clamp(22px,6vw,32px)}
+  .close .offer-h .perk{font-size:clamp(34px,9.6vw,54px);margin-top:10px}
+  .close .offer form{margin:34px auto 0;max-width:440px}
+  .close .date{margin-top:28px}
+  .close .done .tick{margin-left:auto;margin-right:auto}
+  .close .done p{margin-left:auto;margin-right:auto}
+
+  /* Floating way back to the form: phones only. A dark fade sits behind it so body text never shows through. */
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;justify-content:center;pointer-events:none;
+    padding:34px var(--gut) calc(14px + env(safe-area-inset-bottom));background:linear-gradient(to top,var(--ink) 0%,var(--ink) 58%,rgba(11,12,14,0) 100%);
+    transform:translateY(100%);opacity:0;transition:transform .28s cubic-bezier(.2,.8,.2,1),opacity .2s}
+  .dock.up{transform:none;opacity:1}
+  .dock a{pointer-events:auto;display:block;width:100%;max-width:400px;text-align:center;text-decoration:none;background:var(--lime);color:var(--ink);font-weight:600;font-size:17px;
+    padding:15px 26px;border-radius:14px}
+  .dock:not(.up) a{pointer-events:none}
+
+  @media (min-width:900px){
+    :root{--gut:40px}
+    body{font-size:18px}
+    .top{padding-top:22px}
+    .mark{width:156px}
+    .top nav{gap:26px;font-size:15px}
+    .hero{grid-template-columns:minmax(0,1fr) auto;gap:72px;align-items:end;padding-top:56px}
+    .hero .offer form{flex-direction:row;flex-wrap:wrap}
+    .hero .offer input[type=email]{flex:1 1 280px;width:auto}
+    .hero .offer .err{flex-basis:100%}
+    .phone-crop{--w:318px;height:calc(var(--w)*1.52)}
+    .moment figcaption{max-width:318px}
+    .dip,.hear,.team{column-gap:80px;row-gap:26px;grid-template-rows:auto 1fr;align-items:start}
+    .dip{grid-template-columns:380px minmax(0,1fr);grid-template-areas:"vid head" "vid body"}
+    .hear{grid-template-columns:minmax(0,1fr) 340px;grid-template-areas:"head vid" "body vid"}
+    .team{grid-template-columns:300px minmax(0,1fr);grid-template-areas:"vid head" "vid body"}
+    .vid-col{grid-area:vid}
+    .head{grid-area:head;padding-top:26px}
+    .body{grid-area:body}
+    .steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+    .steps li{grid-template-rows:auto 1fr}
+    .plans{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .plan{flex-direction:column;align-items:flex-start}
+    .steps .shot{align-self:start}
+    .uses{margin-top:34px}
+    .uses li{grid-template-columns:minmax(0,4fr) minmax(0,4fr) minmax(0,4fr);grid-template-areas:"pic quote act";gap:48px;padding:30px 0;align-items:center}
+    .uses .pic{grid-area:pic;margin-top:0}
+    .uses blockquote{grid-area:quote}
+    .uses .act{grid-area:act}
+    .dock{display:none}
+    .glist{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:56px}
+    .glist li:nth-last-child(2){border-bottom:1px solid var(--line)}
+    .glist img{width:150px}
+    .glist .all a{height:100%}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .js .phone-crop .note,.js .phone-crop.live .note{animation:none;grid-template-rows:1fr;opacity:1}
+    .dock,.vid .play i{transition:none}
+  }
+</style>
+<!-- Meta Pixel (Scout): loads on every visit, no cookie bar (Emile, Nov 11 2026) -->
+<script>
+(function(){var K='scout-ads-ok',ID='2341794543302228';
+function load(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',ID);fbq('track','PageView');}
+var v=null;try{v=localStorage.getItem(K)}catch(e){}
+load();return;
+function bar(){var d=document.createElement('div');d.setAttribute('role','region');d.setAttribute('aria-label','Ad measurement');
+d.style.cssText='position:fixed;left:12px;right:12px;bottom:12px;z-index:9999;max-width:560px;margin:0 auto;background:#142019;color:#fbfaf6;border-radius:12px;padding:12px 14px;font:14px/1.45 Inter,system-ui,-apple-system,sans-serif;display:flex;gap:10px;align-items:center;flex-wrap:wrap;box-shadow:0 6px 24px rgba(0,0,0,.25)';
+d.innerHTML='<span style="flex:1 1 240px">Can we use a Meta cookie to see which of our ads brought you here? <a href="/privacy#ads" style="color:#cfe8d6">Details</a></span><button data-a="0" style="font:inherit;background:transparent;color:#fbfaf6;border:1px solid #5d6a61;border-radius:8px;padding:8px 12px;cursor:pointer">No thanks</button><button data-a="1" style="font:inherit;background:#fbfaf6;color:#142019;border:0;border-radius:8px;padding:8px 14px;cursor:pointer;font-weight:600">Allow</button>';
+d.addEventListener('click',function(e){var a=e.target.getAttribute&&e.target.getAttribute('data-a');if(a===null)return;try{localStorage.setItem(K,a)}catch(x){}d.remove();if(a==='1')load();});
+document.body.appendChild(d);}
+if(document.body)bar();else document.addEventListener('DOMContentLoaded',bar);})();
+</script>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<!-- The same header and footer are on the guide pages: change them in guides/build-guides.py too. -->
+<header class="wrap top">
+  <a href="/" aria-label="Scout home"><img class="mark" src="/scout-wordmark.png" alt="Scout" width="900" height="300"></a>
+  <nav aria-label="Site"><a href="/guides">Guides</a><span>For Shopify owners</span></nav>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <div>
+      <h1>Scout interviews your shoppers for you.</h1>
+      <p class="lede">After someone visits or buys on your Shopify store, Scout interviews them by voice. It already knows what they did on your store, and it brings you their reasons.</p>
+
+      <div class="offer" id="start">
+        <p class="offer-h">Get free early access.<span class="perk" data-perk>We'll set you up.</span></p>
+        <form novalidate>
+          <label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+          <input type="email" name="email" inputmode="email" autocomplete="email" placeholder="you@yourstore.com" required aria-label="Your email">
+          <button type="submit">Get free early access</button>
+          <div class="err" role="alert"></div>
+        </form>
+        <div class="done" aria-live="polite">
+          <div class="tick"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0B0C0E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+          <h3>You're on the list.</h3>
+          <p data-next>We'll email you before December 15 to set Scout up on your store with you.</p>
+        </div>
+        <p class="date">Launching <b>December 15</b></p>
+        <p class="fine">We only write to you about Scout.</p>
+      </div>
+    </div>
+
+    <figure class="moment">
+      <div class="phone-crop" id="phone" role="img" aria-label="A phone lock screen with three new-order notifications from a store called Ember &amp; Fig">
+        <div class="phone"><div class="screen" aria-hidden="true">
+          <div class="island"></div>
+          <svg class="status" viewBox="0 0 66 13" fill="#fff"><rect x="0" y="8" width="3" height="5" rx="1"/><rect x="5" y="5.5" width="3" height="7.5" rx="1"/><rect x="10" y="3" width="3" height="10" rx="1"/><rect x="15" y="0" width="3" height="13" rx="1"/><path d="M31.5 2.2c2.6 0 5 1 6.800 2.700l-1.300 1.400a8 8 0 0 0-11 0l-1.300-1.400a9.800 9.800 0 0 1 6.800-2.700zm0 3.700c1.600 0 3.100.6 4.200 1.700l-1.300 1.400a4.200 4.200 0 0 0-5.800 0l-1.300-1.400a6 6 0 0 1 4.200-1.700zm0 3.700c.7 0 1.300.3 1.800.7l-1.800 1.900-1.800-1.900c.5-.4 1.100-.7 1.800-.7z"/><rect x="43.500" y=".5" width="19" height="12" rx="3.500" fill="none" stroke="#fff" stroke-opacity=".5"/><rect x="45" y="2" width="14" height="9" rx="2"/><rect x="63.500" y="4.500" width="1.500" height="4" rx=".7" fill-opacity=".5"/></svg>
+          <svg class="lock" viewBox="0 0 15 20" fill="#fff"><path d="M3.500 8V5.500a4 4 0 0 1 8 0V8h.500A2 2 0 0 1 14 10v7a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h.500zm2 0h4V5.500a2 2 0 0 0-4 0V8z"/></svg>
+          <p class="day">Monday, November 9</p>
+          <p class="time">8:47</p>
+          <div class="notes">
+            <div class="note"><div><div class="in"><img class="ico" src="/media/order-icon.png" alt="" width="96" height="96"><div class="tx"><div class="hd">New order <span>now</span></div>[EMBER &amp; FIG] You have a new order for 2 items totaling $72.00 from Online Store.</div></div></div></div>
+            <div class="note"><div><div class="in"><img class="ico" src="/media/order-icon.png" alt="" width="96" height="96"><div class="tx"><div class="hd">New order <span>1m ago</span></div>[EMBER &amp; FIG] You have a new order for 1 item totaling $38.00 from Online Store.</div></div></div></div>
+            <div class="note"><div><div class="in"><img class="ico" src="/media/order-icon.png" alt="" width="96" height="96"><div class="tx"><div class="hd">New order <span>4m ago</span></div>[EMBER &amp; FIG] You have a new order for 1 item totaling $55.00 from Online Store.</div></div></div></div>
+          </div>
+        </div></div>
+      </div>
+      <figcaption><b>You know that sound.</b>Shopify tells you what sold. Scout asks your shoppers why.</figcaption>
+    </figure>
+  </div>
+
+  <section class="wrap dip" id="story">
+    <h2 class="head">Her best candle stopped selling. She guessed price.</h2>
+    <div class="vid-col">
+      <div class="vid">
+        <video src="/media/the-dip.mp4?v=3" poster="/media/the-dip.jpg" playsinline preload="none" width="480" height="854" aria-label="The Dip, a 30-second Scout ad"></video>
+        <button class="play" type="button" aria-label="Play The Dip, 30 seconds, with sound"><i><svg width="20" height="22" viewBox="0 0 20 22" fill="#0B0C0E"><path d="M3 1.300v19.400a1 1 0 0 0 1.500.9l15-9.700a1 1 0 0 0 0-1.700l-15-9.700A1 1 0 0 0 3 1.300z"/></svg></i><span><b>Watch the story</b><em>Play · 30 s · sound on</em></span></button>
+      </div>
+    </div>
+    <div class="dip-story body">
+      <p>Scout interviewed her regulars. The first answer agreed with her: too pricey. Then Scout asked one more question.</p>
+      <div class="turns">
+        <p class="s"><small>Scout</small>“Pricey how?”</p>
+        <p><small>One of her regulars</small>“It looked tiny. Like a birthday candle.”</p>
+      </div>
+      <p>It's the biggest jar she makes. Her photo didn't show it, so she shot it again next to a mug.</p>
+      <p class="flip">“Wasn't the price. It was the picture.”</p>
+    </div>
+  </section>
+
+  <section class="wrap" id="how">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>
+        <div><span class="n">1</span><h3>Scout invites your shoppers</h3><p>After a visit or an order on your Shopify store, Scout invites the shopper to a short voice interview.</p></div>
+        <div class="shot" aria-hidden="true">
+          <div class="ev"><img class="ic" src="/media/order-icon.png" alt="" width="96" height="96" loading="lazy"><div><b>Dana R. placed an order</b><span>Tuesday, 1 candle</span></div></div>
+          <div class="ev"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1B1B1F" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><path d="M3.500 9.500h17"/></svg></span><div><b>She came back to the store</b><span>Four times since</span></div></div>
+          <div class="ev"><span class="ic o"><svg viewBox="0 0 24 24" fill="#0B0C0E"><rect x="3" y="10" width="2.400" height="4" rx="1.200"/><rect x="7.200" y="7.500" width="2.400" height="9" rx="1.200"/><rect x="10.800" y="5" width="2.400" height="14" rx="1.200"/><rect x="14.400" y="7.500" width="2.400" height="9" rx="1.200"/><rect x="18.600" y="10" width="2.400" height="4" rx="1.200"/></svg></span><div><b>Scout invited her to talk</b><span>After her fourth visit back</span></div></div>
+        </div>
+      </li>
+      <li>
+        <div><span class="n">2</span><h3>The interview already knows what they did</h3><p>Scout starts from what that shopper did on your store, then asks follow-up questions to get to the reason. All by voice. Nobody types.</p></div>
+        <div class="shot" aria-hidden="true">
+          <div class="call-h"><span><b>Scout</b> voice interview</span><span class="rec">0:04</span></div>
+          <div class="who"><i>DR</i><div><b>Dana R.</b><span>Ordered Tuesday, back four times since</span></div></div>
+          <svg class="wave" viewBox="0 0 304 56"><rect x="0" y="26.500" width="3" height="3" rx="1.500"/><rect x="7" y="26.500" width="3" height="3" rx="1.500"/><rect x="14" y="26.400" width="3" height="3.200" rx="1.500"/><rect x="21" y="26.500" width="3" height="3" rx="1.500"/><rect x="28" y="24.300" width="3" height="7.400" rx="1.500"/><rect x="35" y="23.600" width="3" height="8.800" rx="1.500"/><rect x="42" y="24.600" width="3" height="6.900" rx="1.500"/><rect x="49" y="18.200" width="3" height="19.600" rx="1.500"/><rect x="56" y="22.600" width="3" height="10.900" rx="1.500"/><rect x="63" y="14.700" width="3" height="26.700" rx="1.500"/><rect x="70" y="20.100" width="3" height="15.800" rx="1.500"/><rect x="77" y="19.200" width="3" height="17.600" rx="1.500"/><rect x="84" y="12.200" width="3" height="31.700" rx="1.500"/><rect x="91" y="4.900" width="3" height="46.200" rx="1.500"/><rect x="98" y="19.800" width="3" height="16.400" rx="1.500"/><rect x="105" y="19.500" width="3" height="17" rx="1.500"/><rect x="112" y="16.100" width="3" height="23.700" rx="1.500"/><rect x="119" y="15.900" width="3" height="24.100" rx="1.500"/><rect x="126" y="21.800" width="3" height="12.400" rx="1.500"/><rect x="133" y="24.600" width="3" height="6.800" rx="1.500"/><rect x="140" y="26.500" width="3" height="3" rx="1.500"/><rect x="147" y="26.500" width="3" height="3" rx="1.500"/><rect x="154" y="26.500" width="3" height="3" rx="1.500"/><rect x="161" y="26.500" width="3" height="3" rx="1.500"/><rect x="168" y="26.500" width="3" height="3" rx="1.500"/><rect x="175" y="26.500" width="3" height="3" rx="1.500"/><rect x="182" y="24.700" width="3" height="6.500" rx="1.500"/><rect x="189" y="19.400" width="3" height="17.200" rx="1.500"/><rect x="196" y="22.700" width="3" height="10.600" rx="1.500"/><rect x="203" y="15.900" width="3" height="24.200" rx="1.500"/><rect x="210" y="12.700" width="3" height="30.700" rx="1.500"/><rect x="217" y="15.700" width="3" height="24.600" rx="1.500"/><rect x="224" y="12.300" width="3" height="31.400" rx="1.500"/><rect x="231" y="21.300" width="3" height="13.400" rx="1.500"/><rect x="238" y="22.100" width="3" height="11.700" rx="1.500"/><rect x="245" y="21.400" width="3" height="13.200" rx="1.500"/><rect x="252" y="18.600" width="3" height="18.800" rx="1.500"/><rect x="259" y="23" width="3" height="9.900" rx="1.500"/><rect x="266" y="25.200" width="3" height="5.500" rx="1.500"/><rect x="273" y="25.600" width="3" height="4.700" rx="1.500"/><rect x="280" y="26.500" width="3" height="3" rx="1.500"/><rect x="287" y="26.500" width="3" height="3" rx="1.500"/><rect x="294" y="26.500" width="3" height="3" rx="1.500"/><rect x="301" y="26.500" width="3" height="3" rx="1.500"/></svg>
+          <p class="said">“You ordered Tuesday and you've been back four times. Looking for something?”</p>
+        </div>
+      </li>
+      <li>
+        <div><span class="n">3</span><h3>You get their reasons, in their own words</h3><p>Scout groups what your shoppers keep saying and keeps their quotes, so you can see what to change.</p></div>
+        <div class="shot" aria-hidden="true">
+          <div class="theme-h"><b>Don't know when their order ships</b><span>5 of 8 interviews</span></div>
+          <div class="bar"><i></i></div>
+          <blockquote>“Nobody told me when it ships. It's a gift, so I keep checking.”<footer>Dana R.</footer></blockquote>
+          <blockquote>“I looked for a tracking link twice.”<footer>Marcus T.</footer></blockquote>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="wrap" id="uses">
+    <h2>What you do with what they say</h2>
+    <ul class="uses">
+      <li>
+        <blockquote>“It looked tiny. Like a birthday candle.”<footer>Owen K., shopper</footer></blockquote>
+        <div class="act"><h3>Fix your product page or landing page</h3><p>Show the size. Answer the question they couldn't ask you.</p></div>
+        <div class="pic pp" role="img" aria-label="A product page for the Fig and Cedar candle with one new line added: Our biggest jar, as tall as a coffee mug.">
+          <img class="pp-img" src="/media/candle-mug.jpg" alt="" loading="lazy" width="375" height="375">
+          <div class="pp-tx"><b>Fig &amp; Cedar candle</b><span>$55.00</span><p class="added"><em>New line</em>Our biggest jar. As tall as a coffee mug.</p><span class="cart">Add to cart</span></div>
+        </div>
+      </li>
+      <li>
+        <blockquote>“I'd try a small one first, to see if I like the scent.”<footer>Carla D., shopper</footer></blockquote>
+        <div class="act"><h3>Know which product to add to your catalog</h3><p>When shoppers keep asking for the same thing, it's your next product.</p></div>
+        <div class="pic adm" role="img" aria-label="A store's Products list with a new draft product: Fig and Cedar, sample size.">
+          <div class="adm-h"><b>Products</b><span>Add product</span></div>
+          <div class="adm-r"><img src="/media/candle.jpg" alt="" decoding="async" width="160" height="160"><span>Fig &amp; Cedar, 3-wick</span><em>Active</em></div>
+          <div class="adm-r"><img class="lav" src="/media/candle.jpg" alt="" decoding="async" width="160" height="160"><span>Lavender, 3-wick</span><em>Active</em></div>
+          <div class="adm-r new"><img class="sm" src="/media/candle.jpg" alt="" decoding="async" width="160" height="160"><span>Fig &amp; Cedar, sample size</span><em class="draft">Draft</em></div>
+        </div>
+      </li>
+      <li>
+        <blockquote>“I light it once the kids are finally asleep.”<footer>Lena M., shopper</footer></blockquote>
+        <div class="act"><h3>Plan your next ad</h3><p>Use their exact words in your next ad. Other shoppers will recognise themselves.</p></div>
+        <div class="pic ad" role="img" aria-label="An ad draft for Ember and Fig. Its headline is the shopper's line: I light it once the kids are finally asleep.">
+          <img class="ad-img" src="/media/candle-mug.jpg" alt="" loading="lazy" width="375" height="375">
+          <div class="ad-tx"><small>Ad draft</small><b>“I light it once the kids are finally asleep.”</b><span>Ember &amp; Fig</span></div>
+        </div>
+      </li>
+      <li>
+        <blockquote>“What do shoppers keep asking about?”<footer>You, to Claude</footer></blockquote>
+        <div class="act"><h3>Ask your AI what to fix first</h3><p>Connect Claude. It answers from what your shoppers actually said.</p></div>
+        <div class="pic app" role="img" aria-label="Scout's Connect your AI app tab, showing Claude as connected.">
+          <div class="app-tabs"><span>Insights</span><span>Interviews</span><span class="on">Connect your AI app</span></div>
+          <div class="app-r"><b>Claude</b><em><i></i>Connected</em></div>
+        </div>
+      </li>
+    </ul>
+    <p class="owner">Scout brings you the reasons. You decide what to change.</p>
+  </section>
+
+  <section class="wrap" id="pricing">
+    <h2>Pricing</h2>
+    <p class="lede">Three monthly plans, billed by Shopify. Every plan starts with a 7-day free trial.</p>
+    <div class="plans">
+      <div class="plan"><div><b>Starter</b><span class="tr">7-day free trial</span></div><div class="pr">$49<small>/mo</small></div></div>
+      <div class="plan"><div><b>Growth</b><span class="tr">7-day free trial</span></div><div class="pr">$129<small>/mo</small></div></div>
+      <div class="plan"><div><b>Scale</b><span class="tr">7-day free trial</span></div><div class="pr">$250<small>/mo</small></div></div>
+    </div>
+    <p class="plans-note">Early access is free until launch on December 15.</p>
+    <div class="trial-how" id="trial">
+      <h3>How your free trial works</h3>
+      <ol class="steps">
+        <li><div><span class="n">1</span><h3>Install and pick a plan</h3><p>Add Scout from the Shopify App Store and approve a plan on Shopify's screen.</p></div></li>
+        <li><div><span class="n">2</span><h3>7 days free</h3><p>Scout interviews your shoppers from the first day. Nothing is charged during the trial.</p></div></li>
+        <li><div><span class="n">3</span><h3>Keep it or uninstall</h3><p>On day 8 Shopify starts billing your plan. Uninstall before then and you pay nothing.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- HEAR ONE goes back here once H192 (the voice Reels) is approved: a 9:16 Reel with its script written out beside it.
+       The section markup is in commit db1cd8e5 of this file (section id="hear"); its styles (.hear, .script) are still in the CSS above.
+       Rebuild the video with media-src/build-media.sh (add the Reel back there too). -->
+  <section class="wrap team" id="team">
+    <blockquote class="head">“When you run a Shopify store, you're the whole team.”</blockquote>
+    <div class="vid-col">
+      <div class="vid">
+        <video src="/media/the-whole-team.mp4" poster="/media/the-whole-team.jpg" playsinline preload="none" width="480" height="854" aria-label="The whole team, a 30-second Scout ad"></video>
+        <button class="play" type="button" aria-label="Play The whole team, 30 seconds, with sound"><i><svg width="20" height="22" viewBox="0 0 20 22" fill="#0B0C0E"><path d="M3 1.300v19.400a1 1 0 0 0 1.500.9l15-9.700a1 1 0 0 0 0-1.700l-15-9.700A1 1 0 0 0 3 1.300z"/></svg></i><span><b>Watch the ad</b><em>Play · 30 s · sound on</em></span></button>
+      </div>
+    </div>
+    <div class="body">
+      <p class="lede">Bottling, shipping, midnight emails. The job nobody gets to is asking customers why they buy. In this ad, a hot-sauce founder hands that job to Scout.</p>
+      <div class="turns">
+        <p class="s"><small>Scout</small>“Good how?”</p>
+        <p><small>Her customer</small>“It's mild enough for my kids.”</p>
+        <p><small>The founder</small>“Mild? My label says dangerously hot!”</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="guides">
+    <h2>Guides for Shopify owners</h2>
+    <ul class="glist">
+      <!-- GUIDES:START (built by guides/build-guides.py) -->
+      <li><a href="/guides/why-shoppers-leave-shopify-store-without-buying"><img src="/guides/img/why-shoppers-leave-shopify-store-without-buying-thumb.jpg" alt="" width="320" height="200" loading="lazy"><span><b>Why Are Shoppers Leaving My Shopify Store Without Buying?</b><span>Shoppers leaving your Shopify store without buying? See the usual causes, why analytics can&#x27;t tell you the reason, and how to ask the shoppers who left.</span></span></a></li>
+      <li><a href="/guides/shopify-traffic-no-sales-product-page-audit"><img src="/guides/img/shopify-traffic-no-sales-product-page-audit-thumb.jpg" alt="" width="320" height="200" loading="lazy"><span><b>Shopify Traffic but No Sales? What to Check First</b><span>Shopify traffic but no sales? Confirm it&#x27;s a conversion problem, find where shoppers drop, close open buying questions and fix checkout friction first.</span></span></a></li>
+      <li><a href="/guides/customer-research-for-shopify-store"><img src="/guides/img/customer-research-for-shopify-store-thumb.jpg" alt="" width="320" height="200" loading="lazy"><span><b>How to Do Customer Research for a Shopify Store</b><span>A practical way to do customer research for your Shopify store: pick one question, interview buyers and non-buyers, keep their words, act on the themes.</span></span></a></li>
+      <li><a href="/guides/where-customers-hear-about-shopify-store"><img src="/guides/img/where-customers-hear-about-shopify-store-thumb.jpg" alt="" width="320" height="200" loading="lazy"><span><b>Where Do Customers Hear About Your Shopify Store?</b><span>Find out where customers really hear about your Shopify store: ask where they decided, not just where they clicked, then build pages for those channels.</span></span></a></li>
+      <li><a href="/guides/shopify-product-specific-faqs"><img src="/guides/img/shopify-product-specific-faqs-thumb.jpg" alt="" width="320" height="200" loading="lazy"><span><b>How to Add Different FAQs to Each Shopify Product</b><span>Add different FAQs to each Shopify product with metafields or separate templates, check them before publishing, and write questions shoppers really ask.</span></span></a></li>
+      <!-- GUIDES:END -->
+      <li class="all"><a href="/guides">All guides</a></li>
+    </ul>
+  </section>
+
+  <div class="close" id="get">
+    <div class="wrap">
+      <img class="mark" src="/scout-wordmark.png" alt="Scout" width="900" height="300" loading="lazy">
+      <p class="what">Scout interviews your shoppers for you.</p>
+      <div class="offer">
+        <p class="offer-h">Get free early access.<span class="perk" data-perk>We'll set you up.</span></p>
+        <form novalidate>
+          <label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+          <input type="email" name="email" inputmode="email" autocomplete="email" placeholder="you@yourstore.com" required aria-label="Your email">
+          <button type="submit">Get free early access</button>
+          <div class="err" role="alert"></div>
+        </form>
+        <div class="done" aria-live="polite">
+          <div class="tick"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0B0C0E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+          <h3>You're on the list.</h3>
+          <p data-next>We'll email you before December 15 to set Scout up on your store with you.</p>
+        </div>
+        <p class="date">Launching <b>December 15</b></p>
+        <p class="fine">We only write to you about Scout.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <p>Scout interviews your shoppers for you.</p>
+  <nav aria-label="Footer"><a href="/">Home</a><a href="/guides">Guides</a><a href="/#start">Get free early access</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/support">Support</a></nav>
+  <p class="legal">© 2026 Gestion Emile Chouha inc. · <a href="mailto:support@scoutyourstore.com">support@scoutyourstore.com</a></p>
+</div></footer>
+
+<div class="dock" id="dock"><a href="#get">Get free early access</a></div>
+
+<script>
+  // Offer from H158, matched to the H177 end screen (Get free early access / We'll set you up). Default 1; ?o=2|3 kept only for old links.
+  var O = {
+    '1': {perk: "We'll set you up.", next: "We'll email you before December 15 to set Scout up on your store with you."},
+    '2': {perk: "Be first in line.", next: "We'll email you before December 15 with your early access."},
+    '3': {perk: "Keep $49 a month for good.", next: "We'll email you before December 15. Your $49 a month price is held for you."}
+  };
+  var q = new URLSearchParams(location.search), o = O[q.get('o')] ? q.get('o') : '1';
+  var each = function (sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); };
+  each('[data-perk]', function (el) { el.textContent = O[o].perk; });
+  each('[data-next]', function (el) { el.textContent = O[o].next; });
+  var ref = ('offer-' + o + (q.get('ref') ? '.' + q.get('ref') : '')).replace(/[^a-z0-9_.-]/gi, '').slice(0, 60);
+
+  // Both forms post to the same /api/signup as the approved page.
+  each('.offer form', function (f) {
+    var btn = f.querySelector('button'), err = f.querySelector('.err');
+    f.addEventListener('submit', function (e) {
+      e.preventDefault(); err.textContent = '';
+      var email = f.email.value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) { err.textContent = 'Please enter a valid email.'; return; }
+      btn.disabled = true; btn.textContent = 'Signing you up…';
+      fetch('/api/signup', {method: 'POST', headers: {'content-type': 'application/json'},
+        body: JSON.stringify({email: email, ref: ref, website: f.website.value})})
+        .then(function (r) { return r.json().then(function (j) { return {ok: r.ok && j.ok, j: j}; }); })
+        .then(function (x) {
+          if (x.ok) { if (window.fbq) fbq('track','Lead'); document.body.classList.add('ok'); sync(); f.parentNode.scrollIntoView({block: 'center'}); }
+          else { err.textContent = (x.j && x.j.error) || 'Something went wrong. Please try again.'; btn.disabled = false; btn.textContent = 'Get free early access'; }
+        })
+        .catch(function () { err.textContent = 'No connection. Please try again.'; btn.disabled = false; btn.textContent = 'Get free early access'; });
+    });
+  });
+
+  // Videos: nothing loads until play; one plays at a time.
+  var playing = 0;
+  each('.vid', function (box) {
+    var v = box.querySelector('video'), b = box.querySelector('.play');
+    b.addEventListener('click', function () {
+      each('.vid video', function (x) { if (x !== v) x.pause(); });
+      v.controls = true; box.classList.add('on');
+      var p = v.play(); if (p && p.catch) p.catch(function () {});
+    });
+    v.addEventListener('play', function () { each('.vid video', function (x) { if (x !== v && !x.paused) x.pause(); }); v.controls = true; box.classList.add('on'); playing++; sync(); });
+    v.addEventListener('pause', function () { playing = Math.max(0, playing - 1); sync(); });
+    v.addEventListener('ended', function () { v.controls = false; box.classList.remove('on'); v.load(); });
+  });
+
+  // The floating button shows only when no form is on screen and no video is playing.
+  var dock = document.getElementById('dock'), seen = 0, started = false;
+  function sync() { dock.classList.toggle('up', started && seen === 0 && playing === 0 && !document.body.classList.contains('ok')); }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { e.target._in = e.isIntersecting; });
+      seen = 0; each('.offer', function (el) { if (el._in) seen++; });
+      started = true; sync();
+    }, {threshold: 0.15});
+    each('.offer', function (el) { io.observe(el); });
+    var ph = document.getElementById('phone');
+    new IntersectionObserver(function (es, ob) {
+      if (es[0].isIntersecting) { ph.classList.add('live'); ob.disconnect(); }
+    }, {threshold: 0.35}).observe(ph);
+  } else { document.getElementById('phone').classList.add('live'); }
+</script>
+</body>
+</html>

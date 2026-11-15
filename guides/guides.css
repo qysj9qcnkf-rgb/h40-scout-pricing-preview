@@ -1,0 +1,112 @@
+/* H116: the Scout guides. Same colours, type, header, footer and floating button as the home page (site/index.html). */
+:root{--ink:#0B0C0E;--card:#131518;--line:#2C2F26;--cream:#F3EFE6;--soft:#CFCBC1;--read:#DDD9CE;--lime:#D1FB18;--muted:#8A887F;
+  --gut:20px;--display:Unbounded,Geist,system-ui,sans-serif;--text:Geist,system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html,body{max-width:100%;overflow-x:hidden}
+body{background:var(--ink);color:var(--cream);font-family:var(--text);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+h1,h2,h3,p,li,b,span{overflow-wrap:break-word}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-999px}
+.skip:focus{left:16px;top:16px;z-index:99;background:var(--cream);color:var(--ink);padding:10px 14px;border-radius:8px}
+.wrap{width:100%;max-width:1180px;margin-inline:auto;padding-inline:var(--gut);min-width:0}
+
+/* Header (as on the home page) */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:14px}
+.mark{width:132px;height:auto;margin-left:-14px;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 16.5%,#000 80.5%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 16.5%,#000 80.5%,transparent 100%)}
+.top nav{display:flex;align-items:center;gap:16px;font-size:14px;white-space:nowrap}
+.top nav a{color:var(--cream);font-weight:500;text-decoration:none}
+.top nav a:hover{color:var(--lime)}
+.top nav a[aria-current]{box-shadow:0 2px 0 var(--lime)}
+.top nav span{color:var(--muted)}
+/* Phones: the sign-up button takes the place of "For Shopify owners", so it is on the first screen. */
+.top .mark{width:118px}
+.top nav{gap:12px}
+.top nav span{display:none}
+.top nav .go{background:var(--lime);color:var(--ink);font-weight:600;font-size:13px;padding:8px 11px;border-radius:10px}
+.top nav .go:hover{color:var(--ink)}
+@media (max-width:359px){.top nav .go{display:none}.top nav span{display:inline}}
+
+/* Guide hero */
+.g-hero{padding-top:clamp(30px,6vw,60px);display:grid;gap:28px}
+.g-hero>*{min-width:0}
+.kicker{font-size:14px;color:var(--lime);margin-bottom:14px}
+.g-hero h1{font-family:var(--display);font-weight:700;font-size:clamp(28px,7.2vw,46px);line-height:1.08;letter-spacing:-.025em;text-wrap:balance}
+.dek{margin-top:16px;font-size:clamp(17px,4.4vw,19px);line-height:1.5;color:var(--soft);max-width:34em}
+.byline{margin-top:14px;font-size:14px;color:var(--muted)}
+.cover{width:100%;height:auto;aspect-ratio:1200/630;border-radius:18px;box-shadow:0 0 0 1px var(--line)}
+
+/* Article */
+.article{width:100%;max-width:calc(720px + 2*var(--gut));margin-inline:auto;padding:clamp(40px,7vw,64px) var(--gut) 12px;font-size:18px;line-height:1.7;color:var(--read)}
+.article p{margin-bottom:18px}
+.article h2{font-family:var(--display);font-weight:700;font-size:clamp(21px,5.4vw,25px);line-height:1.2;letter-spacing:-.025em;color:var(--cream);margin:46px 0 12px;text-wrap:balance}
+.article h3{font-weight:600;font-size:19px;line-height:1.35;color:var(--cream);margin:28px 0 6px}
+.article ul,.article ol{padding-left:24px;margin-bottom:20px}
+.article li{margin:6px 0}
+.article strong{font-weight:600;color:var(--cream)}
+.article a,.cta p a{color:var(--cream);text-decoration:underline;text-decoration-color:var(--lime);text-decoration-thickness:2px;text-underline-offset:3px}
+.article a:hover,.cta p a:hover{color:var(--lime)}
+.answer{font-size:clamp(18px,4.8vw,20px);line-height:1.55;color:var(--cream);background:var(--card);border:1px solid var(--line);border-left:4px solid var(--lime);border-radius:14px;padding:18px 20px;margin-bottom:28px}
+.answer b{display:block;font-size:14px;font-weight:500;color:var(--muted);margin-bottom:4px}
+.faq{border-top:1px solid var(--line);padding:18px 0}
+.faq h3{margin:0 0 6px;font-size:18px}
+.faq p{margin:0}
+
+/* The sign-up block at the end of each guide */
+.cta{position:relative;width:calc(100% - 2*var(--gut));max-width:720px;margin:36px auto 0;padding:clamp(26px,5vw,36px) clamp(22px,4.4vw,32px);display:grid;gap:14px;
+  background:radial-gradient(90% 120% at 100% 0,rgba(209,251,24,.12),transparent 62%),var(--card);border:1px solid var(--line);border-radius:22px}
+.cta h2{font-family:var(--display);font-weight:700;font-size:clamp(22px,5.6vw,28px);line-height:1.12;letter-spacing:-.025em;text-wrap:balance}
+.cta p{color:var(--soft)}
+.cta p strong{font-weight:600;color:var(--cream)}
+.btn{justify-self:start;display:inline-block;background:var(--lime);color:var(--ink);font-weight:600;font-size:17px;text-decoration:none;padding:15px 24px;border-radius:14px;transition:transform .12s ease}
+.btn:active{transform:scale(.985)}
+.cta small{font-size:14px;color:var(--muted)}
+.cta small a{color:var(--cream)}
+
+/* Guides index */
+.g-hero.ix h1{font-size:clamp(33px,8.7vw,56px);line-height:1.04}
+.cards{display:grid;gap:22px;padding-top:clamp(32px,6vw,52px)}
+.card{display:flex;flex-direction:column;min-width:0;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;text-decoration:none;transition:border-color .15s}
+.card:hover{border-color:var(--lime)}
+.card img{width:100%;height:auto;aspect-ratio:8/5;background:#000}
+.card div{padding:18px 20px 22px;display:grid;gap:8px}
+.card em{font-style:normal;font-size:13px;color:var(--muted)}
+.card b{font-family:var(--display);font-weight:700;font-size:clamp(17px,4.6vw,19px);line-height:1.25;letter-spacing:-.02em;color:var(--cream)}
+.card span{color:var(--soft);font-size:15.5px;line-height:1.5}
+
+/* Footer (as on the home page) */
+.foot{margin-top:clamp(64px,9vw,104px);border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between;padding-top:24px;padding-bottom:calc(28px + env(safe-area-inset-bottom))}
+.foot nav{display:flex;flex-wrap:wrap;gap:8px 20px}
+.foot a{color:var(--soft);text-decoration:none}
+.foot a:hover{color:var(--lime)}
+
+/* Floating way to the form: phones only, dark fade behind (as on the home page) */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;justify-content:center;pointer-events:none;
+  padding:34px var(--gut) calc(14px + env(safe-area-inset-bottom));background:linear-gradient(to top,var(--ink) 0%,var(--ink) 58%,rgba(11,12,14,0) 100%);
+  transform:translateY(100%);opacity:0;transition:transform .28s cubic-bezier(.2,.8,.2,1),opacity .2s}
+.dock.up{transform:none;opacity:1}
+.dock a{pointer-events:auto;display:block;width:100%;max-width:400px;text-align:center;text-decoration:none;background:var(--lime);color:var(--ink);font-weight:600;font-size:17px;padding:15px 26px;border-radius:14px}
+.dock:not(.up) a{pointer-events:none}
+
+@media (min-width:900px){
+  :root{--gut:40px}
+  body{font-size:18px}
+  .top{padding-top:22px}
+  .top .mark{width:156px}
+  .top nav{gap:26px;font-size:15px}
+  .top nav span{display:inline}
+  .top nav .go{font-size:15px;padding:10px 18px;border-radius:12px}
+  .g-hero{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px;align-items:center}
+  .g-hero.ix{grid-template-columns:minmax(0,1fr)}
+  .cards{grid-template-columns:repeat(6,minmax(0,1fr));gap:24px}
+  .cards .card{grid-column:span 2}
+  .cards .card:nth-child(-n+2){grid-column:span 3}
+  .dock{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .dock,.btn,.card{transition:none}
+}

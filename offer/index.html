@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Scout end screen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0B0C0E;--card:#131518;--line:#2C2F26;--cream:#F3EFE6;--lime:#D1FB18;--muted:#8A887F;--amber:#FFB547}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--ink);color:var(--cream);font-family:Geist,system-ui,sans-serif;-webkit-font-smoothing:antialiased;padding:40px 16px 64px}
+  html,body{max-width:100%;overflow-x:hidden}
+  .wrap{max-width:1240px;margin:0 auto;min-width:0}
+  h1,h2,p,dd{overflow-wrap:break-word}
+  .kick{font:500 12px "Geist Mono",monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  h1{font-weight:600;font-size:clamp(28px,4.4vw,44px);letter-spacing:-.025em;line-height:1.08;margin-top:10px;max-width:860px}
+  .lede{margin-top:12px;color:#CFCBC1;font-size:17px;line-height:1.5;max-width:760px}
+  .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:32px}
+  .opt{min-width:0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;display:flex;flex-direction:column}
+  .opt.rec{border-color:var(--lime);box-shadow:0 0 0 1px var(--lime)}
+  .tag{align-self:flex-start;font:500 11px "Geist Mono",monospace;letter-spacing:.12em;text-transform:uppercase;padding:5px 9px;border-radius:999px;border:1px solid var(--line);color:var(--muted);margin-bottom:12px}
+  .rec .tag{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+  video{width:100%;max-width:100%;aspect-ratio:9/16;border-radius:12px;background:#000;display:block}
+  h2{font-weight:600;font-size:22px;letter-spacing:-.015em;margin-top:16px;line-height:1.2}
+  h2 .p{color:var(--lime)}
+  dl{margin-top:12px;display:grid;gap:10px;font-size:15px;line-height:1.45}
+  dt{font:500 11px "Geist Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  dd{color:#E4E0D6}
+  .ok{color:var(--lime)} .warn{color:var(--amber)}
+  .try{margin-top:auto;padding-top:16px}
+  .try a{display:block;text-align:center;background:transparent;border:1px solid var(--line);color:var(--cream);text-decoration:none;border-radius:12px;padding:13px;font-weight:500}
+  .rec .try a{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+  .notes{margin-top:36px;border-top:1px solid var(--line);padding-top:22px;display:grid;gap:10px;font-size:15px;line-height:1.5;color:#CFCBC1;max-width:860px}
+  .notes b{color:var(--cream);font-weight:600}
+  .grid.one{grid-template-columns:minmax(0,380px) minmax(0,1fr);align-items:start}
+  .side h2{margin-top:0}
+  @media (max-width:900px){.grid.one{grid-template-columns:minmax(0,1fr)}}
+  @media (max-width:900px){.grid{grid-template-columns:minmax(0,1fr)}.opt{max-width:440px;width:100%;margin:0 auto}}
+</style>
+<!-- Meta Pixel (Scout): loads on every visit, no cookie bar (Emile, Nov 11 2026) -->
+<script>
+(function(){var K='scout-ads-ok',ID='2341794543302228';
+function load(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',ID);fbq('track','PageView');}
+var v=null;try{v=localStorage.getItem(K)}catch(e){}
+load();return;
+function bar(){var d=document.createElement('div');d.setAttribute('role','region');d.setAttribute('aria-label','Ad measurement');
+d.style.cssText='position:fixed;left:12px;right:12px;bottom:12px;z-index:9999;max-width:560px;margin:0 auto;background:#142019;color:#fbfaf6;border-radius:12px;padding:12px 14px;font:14px/1.45 Inter,system-ui,-apple-system,sans-serif;display:flex;gap:10px;align-items:center;flex-wrap:wrap;box-shadow:0 6px 24px rgba(0,0,0,.25)';
+d.innerHTML='<span style="flex:1 1 240px">Can we use a Meta cookie to see which of our ads brought you here? <a href="/privacy#ads" style="color:#cfe8d6">Details</a></span><button data-a="0" style="font:inherit;background:transparent;color:#fbfaf6;border:1px solid #5d6a61;border-radius:8px;padding:8px 12px;cursor:pointer">No thanks</button><button data-a="1" style="font:inherit;background:#fbfaf6;color:#142019;border:0;border-radius:8px;padding:8px 14px;cursor:pointer;font-weight:600">Allow</button>';
+d.addEventListener('click',function(e){var a=e.target.getAttribute&&e.target.getAttribute('data-a');if(a===null)return;try{localStorage.setItem(K,a)}catch(x){}d.remove();if(a==='1')load();});
+document.body.appendChild(d);}
+if(document.body)bar();else document.addEventListener('DOMContentLoaded',bar);})();
+</script>
+</head>
+<body>
+<div class="wrap">
+  <p class="kick">H158 · Scout end screen · watch with sound</p>
+  <h1>One end screen on every Scout ad: get free early access.</h1>
+  <p class="lede">This is the talking-o ending from H177, in Alexandra's voice. It replaces the earlier outro choices, so every Scout ad ends the same way and sends people to the same sign-up.</p>
+
+  <div class="grid one">
+    <section class="opt rec">
+      <span class="tag">The end screen · 4.5 s</span>
+      <video src="/offer/endscreen-only.mp4" poster="/offer/poster-endscreen.jpg" controls playsinline preload="metadata"></video>
+    </section>
+    <section class="opt side">
+      <h2>Get free early access. <span class="p">We'll set you up.</span></h2>
+      <dl>
+        <dt>What she says</dt><dd>"Scout interviews your shoppers for you. Get free early access."</dd>
+        <dt>On screen</dt><dd>Scout with the talking o · For Shopify owners · Get free early access · We'll set you up · Launching December 15.</dd>
+        <dt>Why sign up now</dt><dd>Free, and personal setup for everyone on the list before December 15.</dd>
+        <dt>Can we honour it?</dt><dd class="ok">Yes. It's the plan already: we contact each sign-up and walk them through installing Scout.</dd>
+        <dt>The sign-up page says</dt><dd>The same words: "Get free early access. We'll set you up." on a button labelled "Get free early access".</dd>
+      </dl>
+      <div class="try"><a href="/">Try the sign-up →</a></div>
+    </section>
+  </div>
+
+  <div class="notes">
+    <p><b>The end screen holds only:</b> the Scout wordmark, who it's for, the offer, one action and "Launching December 15". No Living Store, no second link.</p>
+    <p><b>Where to sign up:</b> scoutyourstore.com, the name you picked on H122. It isn't bought yet. Until it is, the sign-up runs on this preview link.</p>
+    <p><b>Sign-ups are counted:</b> every email lands in one table, tagged with where it came from, so we can contact each person by hand.</p>
+  </div>
+</div>
+</body>
+</html>
