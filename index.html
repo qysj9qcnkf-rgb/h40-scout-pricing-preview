@@ -157,6 +157,7 @@
   .steps .n{font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);background:var(--lime);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;margin-bottom:14px}
   .steps p{margin-top:10px;color:var(--soft);max-width:26em}
   .plans{margin-top:30px;display:grid;gap:12px}
+  .plan.free{border-color:var(--lime)}
   .plan{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 22px;display:flex;align-items:baseline;justify-content:space-between;gap:12px}
   .plan b{font-family:var(--display);font-weight:700;font-size:17px}
   .plan .pr{font-family:var(--display);font-weight:700;font-size:28px;letter-spacing:-.02em;white-space:nowrap}
@@ -310,7 +311,7 @@
     .body{grid-area:body}
     .steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
     .steps li{grid-template-rows:auto 1fr}
-    .plans{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .plans{grid-template-columns:repeat(4,minmax(0,1fr))}
     .plan{flex-direction:column;align-items:flex-start}
     .steps .shot{align-self:start}
     .uses{margin-top:34px}
@@ -357,7 +358,7 @@ if(document.body)bar();else document.addEventListener('DOMContentLoaded',bar);})
   <div class="wrap hero">
     <div>
       <h1>Scout interviews your shoppers for you.</h1>
-      <p class="lede">After someone visits or buys on your Shopify store, Scout interviews them by voice. It already knows what they did on your store, and it brings you their reasons.</p>
+      <p class="lede">After someone visits or buys on your Shopify store, Scout interviews them by voice. It already knows what they did on your store, and it brings you their reasons. <a href="#pricing">Start free: $10 of usage on us, no card.</a></p>
 
       <div class="offer" id="start">
         <p class="offer-h">Get free early access.<span class="perk" data-perk>We'll set you up.</span></p>
@@ -490,8 +491,9 @@ if(document.body)bar();else document.addEventListener('DOMContentLoaded',bar);})
 
   <section class="wrap" id="pricing">
     <h2>Pricing</h2>
-    <p class="lede">Install Scout free. Pick a plan when you want Scout talking to your shoppers. Every plan includes monthly usage, and extra usage is billed by how much Scout uses.</p>
+    <p class="lede">Start free: $10 of usage on us, no card, enough for your first few customer interviews. Upgrade in one click when you want more. Every plan includes monthly usage, and extra usage is billed by how much Scout uses.</p>
     <div class="plans">
+      <div class="plan free"><div><b>Free</b><span class="tr">$10 of usage on us to start · no card</span></div><div class="pr">$0</div></div>
       <div class="plan"><div><b>Starter</b><span class="tr">Monthly Scout usage included</span></div><div class="pr">$49<small>/mo</small></div></div>
       <div class="plan"><div><b>Growth</b><span class="tr">More usage included</span></div><div class="pr">$129<small>/mo</small></div></div>
       <div class="plan"><div><b>Scale</b><span class="tr">The most usage included</span></div><div class="pr">$250<small>/mo</small></div></div>
@@ -500,8 +502,8 @@ if(document.body)bar();else document.addEventListener('DOMContentLoaded',bar);})
     <div class="bill-how" id="billing">
       <h3>How billing works</h3>
       <ol class="steps">
-        <li><div><span class="n">1</span><h3>Install free</h3><p>Add Scout from the Shopify App Store. Nothing is charged until you pick a plan.</p></div></li>
-        <li><div><span class="n">2</span><h3>Pick a plan</h3><p>Approve Starter, Growth or Scale on Shopify's screen. Your plan's usage is included every month.</p></div></li>
+        <li><div><span class="n">1</span><h3>Start free</h3><p>Add Scout from the Shopify App Store. $10 of usage is on us, no card: enough for your first few customer interviews.</p></div></li>
+        <li><div><span class="n">2</span><h3>Upgrade in one click</h3><p>Scout shows what's left of your free $10. When it runs out, Scout pauses and shows one Upgrade button: approve Starter, Growth or Scale on Shopify's screen and it's back the same minute.</p></div></li>
         <li><div><span class="n">3</span><h3>Pay for extra only if you use it</h3><p>Go past your plan's usage and the extra is billed by how much Scout uses, never above the monthly cap you approve. Switch plans or uninstall any time.</p></div></li>
       </ol>
     </div>
