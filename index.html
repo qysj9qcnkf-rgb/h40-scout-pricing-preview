@@ -350,7 +350,7 @@ if(document.body)bar();else document.addEventListener('DOMContentLoaded',bar);})
 <!-- The same header and footer are on the guide pages: change them in guides/build-guides.py too. -->
 <header class="wrap top">
   <a href="/h40-scout-pricing-preview/" aria-label="Scout home"><img class="mark" src="/h40-scout-pricing-preview/scout-wordmark.png" alt="Scout" width="900" height="300"></a>
-  <nav aria-label="Site"><a href="/h40-scout-pricing-preview/guides">Guides</a><span>For Shopify owners</span></nav>
+  <nav aria-label="Site"><a href="#pricing">Pricing</a><a href="/h40-scout-pricing-preview/guides">Guides</a><span>For Shopify owners</span></nav>
 </header>
 
 <main>
@@ -568,7 +568,7 @@ if(document.body)bar();else document.addEventListener('DOMContentLoaded',bar);})
 
 <footer class="foot"><div class="wrap">
   <p>Scout interviews your shoppers for you.</p>
-  <nav aria-label="Footer"><a href="/h40-scout-pricing-preview/">Home</a><a href="/h40-scout-pricing-preview/guides">Guides</a><a href="/h40-scout-pricing-preview/#start">Get free early access</a><a href="/h40-scout-pricing-preview/privacy">Privacy</a><a href="/h40-scout-pricing-preview/terms">Terms</a><a href="/h40-scout-pricing-preview/support">Support</a></nav>
+  <nav aria-label="Footer"><a href="/h40-scout-pricing-preview/">Home</a><a href="/h40-scout-pricing-preview/#pricing">Pricing</a><a href="/h40-scout-pricing-preview/guides">Guides</a><a href="/h40-scout-pricing-preview/#start">Get free early access</a><a href="/h40-scout-pricing-preview/privacy">Privacy</a><a href="/h40-scout-pricing-preview/terms">Terms</a><a href="/h40-scout-pricing-preview/support">Support</a></nav>
   <p class="legal">© 2026 Gestion Emile Chouha inc. · <a href="mailto:support@scoutyourstore.com">support@scoutyourstore.com</a></p>
 </div></footer>
 
@@ -595,7 +595,7 @@ if(document.body)bar();else document.addEventListener('DOMContentLoaded',bar);})
       var email = f.email.value.trim();
       if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) { err.textContent = 'Please enter a valid email.'; return; }
       btn.disabled = true; btn.textContent = 'Signing you up…';
-      fetch('/h40-scout-pricing-preview/api/signup', {method: 'POST', headers: {'content-type': 'application/json'},
+      fetch('/api/signup', {method: 'POST', headers: {'content-type': 'application/json'},
         body: JSON.stringify({email: email, ref: ref, website: f.website.value})})
         .then(function (r) { return r.json().then(function (j) { return {ok: r.ok && j.ok, j: j}; }); })
         .then(function (x) {
